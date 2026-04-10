@@ -4,9 +4,9 @@ A secure AWS Lambda function that generates random passcodes with configurable c
 
 ## 🏗️ Architecture
 
-![Architecture Diagram](architecture-diagram.excalidraw)
+![Architecture Diagram](img7.png)
 
-The system follows a secure serverless architecture:
+**Security Flow:**
 
 1. **Client Request** → HTTP Trigger → Lambda Function
 2. **Authentication** → Lambda extracts `x-api-key` from headers
@@ -15,7 +15,7 @@ The system follows a secure serverless architecture:
 5. **Generation** → Create secure passcode using `secrets.choice()`
 6. **Response** → Return JSON with passcode and metadata
 
-**Key Security Flow:**
+**Key Security Features:**
 - Environment variables encrypted with AWS KMS
 - API key validation with cached decryption
 - Cryptographically secure random generation
