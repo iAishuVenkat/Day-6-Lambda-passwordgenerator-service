@@ -4,7 +4,7 @@ A secure AWS Lambda function that generates random passcodes with configurable c
 
 ## 🏗️ Architecture
 
-![Architecture Diagram](img7.png)
+![Architecture Diagram](architecture_diagram.png)
 
 **Security Flow:**
 
