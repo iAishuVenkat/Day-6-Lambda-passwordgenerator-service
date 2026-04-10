@@ -2,6 +2,25 @@
 
 A secure AWS Lambda function that generates random passcodes with configurable character sets and length. Features KMS encryption for environment variables and comprehensive error handling.
 
+## 🏗️ Architecture
+
+![Architecture Diagram](architecture-diagram.excalidraw)
+
+The system follows a secure serverless architecture:
+
+1. **Client Request** → HTTP Trigger → Lambda Function
+2. **Authentication** → Lambda extracts `x-api-key` from headers
+3. **KMS Decryption** → Lambda decrypts `API_SECRET_KEY` environment variable
+4. **Validation** → Compare keys and validate parameters
+5. **Generation** → Create secure passcode using `secrets.choice()`
+6. **Response** → Return JSON with passcode and metadata
+
+**Key Security Flow:**
+- Environment variables encrypted with AWS KMS
+- API key validation with cached decryption
+- Cryptographically secure random generation
+- No sensitive data in logs or storage
+
 ## 🔐 Security Features
 
 - **KMS Encryption**: Environment variables encrypted at rest and in transit
